@@ -27,15 +27,17 @@ public class Main {
 	 * @param images List of images corresponding to each page of original pdf
 	 */
 	private static void scoreAllPages(ArrayList<PImage> images) {
-		ArrayList<AnswerSheetSet> scoredSheets = new ArrayList<AnswerSheetSet>();
+		ArrayList<AnswerSheet> scoredSheets = new ArrayList<AnswerSheet>();
 
 		// Score the first page as the key
-		AnswerSheetSet key = markReader.processPageImage(images.get(0));
-
+		AnswerSheet key = markReader.processPageImage(images.get(0));
+		for(int i=0;i<26;i++){
+		System.out.println(key.getAnswer(i));
+		}
 		for (int i = 1; i < images.size(); i++) {
 			PImage image = images.get(i);
 
-			AnswerSheetSet answers = markReader.processPageImage(image);
+			AnswerSheet answers = markReader.processPageImage(image);
 
 			// do something with answers
 		}
