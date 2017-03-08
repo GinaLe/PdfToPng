@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import processing.core.PImage;
 
 public class Main {
-	public static final String PDF_PATH = "/omrtest.pdf";
+	public static final String PDF_PATH = "/omrtest3.pdf";
 	public static OpticalMarkReader markReader = new OpticalMarkReader();
 	
 	public static void main(String[] args) {
@@ -27,15 +27,15 @@ public class Main {
 	 * @param images List of images corresponding to each page of original pdf
 	 */
 	private static void scoreAllPages(ArrayList<PImage> images) {
-		ArrayList<AnswerSheet> scoredSheets = new ArrayList<AnswerSheet>();
+		ArrayList<AnswerSheetSet> scoredSheets = new ArrayList<AnswerSheetSet>();
 
 		// Score the first page as the key
-		AnswerSheet key = markReader.processPageImage(images.get(0));
+		AnswerSheetSet key = markReader.processPageImage(images.get(0));
 
 		for (int i = 1; i < images.size(); i++) {
 			PImage image = images.get(i);
 
-			AnswerSheet answers = markReader.processPageImage(image);
+			AnswerSheetSet answers = markReader.processPageImage(image);
 
 			// do something with answers
 		}
