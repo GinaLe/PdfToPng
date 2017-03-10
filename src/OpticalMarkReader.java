@@ -32,7 +32,7 @@ public class OpticalMarkReader {
 			// System.out.println("("+r[x]+", "+c[x]+")");
 		}
 
-		AnswerSheet answers = new AnswerSheet();
+		AnswerSheet answers = new AnswerSheet(26);
 		for (int i = 0; i < r.length; i++) {
 			answers.fillAnswer(i, determineBubble(r[i], c[i], 195, 15, 5, image));
 
@@ -122,7 +122,7 @@ public class OpticalMarkReader {
 			}
 
 		}
-		System.out.println(" ");
+		
 		return darkestBox;
 	}
 }
